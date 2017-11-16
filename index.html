@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SoloLearn JS Trainer</title>
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/utils.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="style/material-icons.css">
+        <script src="../elementary-library/elementary.lib.min.js"></script>
+        <script src="../css-library/elementary.color.js"></script>
+        <script src="../css-library/elementary.css.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    </head>
+    <body>
+  		<div class="navbar teal">
+    		<a class="brand" href="#">SoloLearn Exercise</a>
+    		
+  		  <div id="nav-links">
+      		<a type="button" class="nav-link active" target="exercise">
+      			<i class="material-icons">flash_on</i>
+      		</a>
+      		<a type="button" class="nav-link" target="home">
+      			<i class="material-icons">home</i>
+      		</a>
+      		<a type="button" class="nav-link" target="profile">
+      			<i class="material-icons">face</i>
+      		</a>
+      	</div>
+      </div>
+
+        <div id="home" class="container">
+        	<h1 class="h-1">
+            <span class="title-slash">#</span> Important
+          </h1>
+          <div class="content">
+            <p class="lead">
+              <b>This app is still under development! It is not fully functional and the question base is small - for now you can face only 13 different questions.</b>
+            </p>
+            <p>
+              Nevertheless, if there's interest I will keep developing this app to add more functionality. For now the only type of questions supported are single choice answerable; I'm planning to add multiple-answers questions and user-typed answers as soon as possible. The visual style will be tweaked, too. The question database must be improved as well. If you want to contribute check the contribution section further down! Thank you!
+            </p>
+          </div>
+
+          <h1 class="h-1">
+            <span class="title-slash">#</span> About
+          </h1>
+        	<div class="content">
+	        	<p class="lead">
+	        		This is the place to go Solo on SoloLearn's JavaScript challenge questions!
+	        	</p>
+	        	<p>
+	        		This app allows you to go Single Player against some of the JavaScript challenge questions from SoloLearn. First, go to the exercise section (the lightning icon on the top) and press start. Then the app will ask you a serie of 5 questions, just like in a SoloLearn challenge. After the 5 answers, you will see the correct answers of the questions you answered wrong and an explanation (if there is). The app will keep a record of your correctly and incorrectly answered questions. You can then visit the profile section (the little head icon) to review your stats. However, due to the lack of database the statistics will be lost, once you close the app.
+	        	</p>
+	        </div>
+
+          <h1 class="h-1">
+            <span class="title-slash">#</span> Contribution
+          </h1>
+          <div class="content">
+            <p class="lead">
+              SoloLearn is a huge platform! This tiny trainer needs your help!
+            </p>
+            <p>
+              In order to expand this exercising app I need your help! If you would like to contribute with anything you're more than welcome! 
+              For now I'm looking forward to expanding the database of questions. I will include as much as I can get from SoloLearn, because afterall 
+              the purpose is to practice for the challenges, right? But, you are welcome to submit your own questions in the comments. The question object 
+              this app is using is a very simple JSON object.<br>
+              <code>
+                {<br>&nbsp;&nbsp;
+                  question: 'The text of the question goes here',<br>&nbsp;&nbsp;
+                  wrong: [ 'This is an array with all the', 'wrong', 'answers'],<br>&nbsp;&nbsp;
+                  correct: 'Here comes the correct answer',<br>&nbsp;&nbsp;
+                  time: 10, // time is a Number, indicates the time you'll have to answer the question, in seconds<br>&nbsp;&nbsp;
+                  explanation: 'This is some text. Here may come an explanation to why the answer is what it is.'<br>
+                }
+            </code>
+          </div>
+
+        	<!-- <h1 class="h-1">
+            <span class="title-slash">#</span> Settings
+          </h1>
+        	<div class="content">
+	        	<p class="lead">
+	        		Pick color theme
+	        	</p>
+	        </div> -->
+        </div>
+
+        <div id="exercise" class="container d-block">
+        	<button type="button" id="start-btn" class="game-btn">Start</button>
+        	
+          <div id="game-panel" class="d-none">
+	        	<div id="progress-bar"></div>
+
+            <div id="score-board">
+              <p class="score">
+                <span id="correct"></span>
+                <small>Correct</small>
+              </p>
+
+              <p class="score">
+                <span id="wrong"></span>
+                <small>Wrong</small>
+              </p>
+
+              <p class="score">
+                <span id="question-count"></span>
+                <small>Questions</small>
+              </p>
+            </div>
+	        	
+            <p id="question" class="question"></p>
+
+            <div id="answer-panel"></div>
+
+	        	<button type="button" id="answer-btn" class="game-btn">Submit</button>
+	        </div>
+
+          <div id="ag-panel" class="d-none">
+            <div id="score-board">
+              <p class="score">
+                <span id="correct"></span>
+                <small>Correct</small>
+              </p>
+
+              <p class="score">
+                <span id="wrong"></span>
+                <small>Wrong</small>
+              </p>
+            </div>
+
+            <button type="button" id="cont-btn" class="game-btn">Continue</button>
+
+            <div id="review-panel"></div>
+          </div>
+        </div>
+
+        <div id="profile" class="container">
+        	<h1 class="h-1">
+            <span class="title-slash">#</span> Profile
+          </h1>
+          
+          <div class="chart-container">
+            <canvas id="chart"></canvas>
+          </div>
+
+          <div class="content">
+            <p class="lead" id="general-info"></p>
+          </div>
+        </div>
+
+        <script src="script/script.js"></script>
+    </body>
+</html>

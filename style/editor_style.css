@@ -39,6 +39,22 @@ html, body {
 	font-family: 'Helvetica Neue', 'Segoe UI Light', sans-serif;
 }
 
+.input-group-inline {
+	width: 75%;
+	display: block;
+	text-align: center;
+	margin: 0.5rem auto;
+}
+
+.input-group-inline input[type=radio] {
+	display: inline-block;
+}
+
+.input-group-inline label {
+	display: inline-block;
+	margin: 0 0.5rem;
+}
+
 textarea {
 	min-height: 200px;
 }
